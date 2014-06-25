@@ -1,11 +1,12 @@
 package com.moctis.helloworld.app;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +24,27 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_settings:
+                return true;
+            case R.id.action_other:
+                return this.onClickMenuOther(item);
+            case R.id.action_exit:
+                return this.onClickMenuExit();
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
+    public boolean onClickMenuOther(MenuItem item) {
+        Toast toast = Toast.makeText(this, item.getTitle(), Toast.LENGTH_LONG);
+        toast.show();
+        return true;
+    }
+
+    public boolean onClickMenuExit() {
+        finish();
+        return true;
+    }
 }
