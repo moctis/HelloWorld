@@ -3,12 +3,19 @@
 
     <string name="app_name">HelloWorld</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hello_world_again">Hello world again!</string>
+    <string name="hello_world_3">Hello world Moctis!</string>
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="action_other">Other</string>
+    <string name="title_activity_activity2">Activity 2</string>
+    <string name="title_activity_activity3">Activity 3</string>
+    <string name="action_show_activity2">Show Activity 2</string>
+    <string name="action_show_activity3">Show Activity 3</string>
     <string name="action_exit">Exit</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_show_Toast">Show Toast</string>
+    <string name="action_close">Close</string>
+    <string name="thisIsAToastText">This is a toast text</string>
 
 </resources>
