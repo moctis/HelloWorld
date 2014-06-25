@@ -23,7 +23,6 @@ public class Activity2 extends ActionBarActivity {
     }
 
     @Override
-
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
