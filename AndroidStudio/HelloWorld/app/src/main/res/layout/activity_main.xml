@@ -82,8 +82,10 @@
 
         <TextView
             android:id="@+id/bottomTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
             android:text="Bottom Section TextView"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
