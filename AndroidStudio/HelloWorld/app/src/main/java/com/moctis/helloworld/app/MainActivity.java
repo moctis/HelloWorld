@@ -76,6 +76,18 @@ public class MainActivity extends Activity {
                     }
                 });
 
+        findViewById(R.id.aNewButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        handleButton3Click();
+                    }
+                });
+    }
+
+    private void handleButton3Click() {
+        TextView view = (TextView) findViewById(R.id.firstTopTextView);
+        view.setText("Button3");
     }
 
     void handleButtonCLick() {

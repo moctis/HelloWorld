@@ -56,6 +56,15 @@
             android:layout_toRightOf="@+id/firstTopButton"
             android:text="Button 2" />
 
+        <Button
+            android:id="@+id/aNewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/firstTopButton"
+            android:layout_alignStart="@+id/firstTopButton"
+            android:layout_below="@+id/firstTopButton"
+            android:text="New Button" />
+
     </RelativeLayout>
 
     <LinearLayout
