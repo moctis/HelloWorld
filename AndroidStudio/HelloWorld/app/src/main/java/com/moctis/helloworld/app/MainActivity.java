@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +58,32 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     void setupUiEvents() {
-        Button theButton = (Button) findViewById(R.id.firstTopButton);
-        theButton.setOnClickListener(this);
+        findViewById(R.id.firstTopButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        handleButtonCLick();
+                    }
+                });
+
+        findViewById(R.id.secondButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        handleButton2CLick();
+                    }
+                });
+
     }
 
-    void handleButtonCLick(Button button) {
-
+    void handleButtonCLick() {
+        TextView view = (TextView) findViewById(R.id.firstTopTextView);
+        view.setText("Click 1");
     }
 
-    @Override
-    public void onClick(View view) {
-        handleButtonCLick((Button) view);
+    void handleButton2CLick() {
+        TextView view = (TextView) findViewById(R.id.firstTopTextView);
+        view.setText("Click 2 !!");
     }
+
 }

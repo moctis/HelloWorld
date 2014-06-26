@@ -48,6 +48,14 @@
             android:layout_toRightOf="@+id/firstTopTextView"
             android:text="Click Me!" />
 
+        <Button
+            android:id="@+id/secondButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/firstTopButton"
+            android:layout_toRightOf="@+id/firstTopButton"
+            android:text="Button 2" />
+
     </RelativeLayout>
 
     <LinearLayout
