@@ -38,6 +38,8 @@ public class MainActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+
     }
 
     public boolean onClickMenuShowActivity2() {
