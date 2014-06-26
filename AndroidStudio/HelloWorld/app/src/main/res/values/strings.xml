@@ -17,5 +17,7 @@
     <string name="action_show_Toast">Show Toast</string>
     <string name="action_close">Close</string>
     <string name="thisIsAToastText">This is a toast text</string>
+    <string name="First_top_TextView">First Top</string>
+    <string name="Second_Top">Second Top</string>
 
 </resources>
