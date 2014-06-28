@@ -15,17 +15,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupUiEvents();
-        Test();
-    }
-
-    private void Test() {
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -43,8 +36,6 @@ public class MainActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
     }
 
     public boolean onClickMenuShowActivity2() {
@@ -104,5 +95,4 @@ public class MainActivity extends Activity {
         TextView view = (TextView) findViewById(R.id.firstTopTextView);
         view.setText("Click 2 !!");
     }
-
 }

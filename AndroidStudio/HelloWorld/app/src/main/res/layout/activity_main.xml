@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.moctis.helloworld.app.MainActivity">
+    tools:context=".MainActivity">
 
 
     <RelativeLayout
@@ -31,10 +31,9 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_toRightOf="@+id/firstTopTextView"
+            android:layout_alignLeft="@+id/firstTopTextView"
+            android:layout_alignStart="@+id/firstTopTextView"
+            android:layout_below="@+id/firstTopTextView"
             android:text="@string/Second_Top"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -42,27 +41,27 @@
             android:id="@+id/firstTopButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView3"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_toRightOf="@+id/firstTopTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/firstTopTextView"
             android:text="Click Me!" />
 
         <Button
             android:id="@+id/secondButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/firstTopButton"
-            android:layout_toRightOf="@+id/firstTopButton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/firstTopButton"
             android:text="Button 2" />
 
         <Button
             android:id="@+id/aNewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/firstTopButton"
-            android:layout_alignStart="@+id/firstTopButton"
-            android:layout_below="@+id/firstTopButton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/secondButton"
             android:text="New Button" />
 
     </RelativeLayout>
@@ -77,7 +76,7 @@
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+        android:layout_weight="1"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -99,7 +98,7 @@
 
         <TextView
             android:id="@+id/bottomTextView"
-            android:layout_width="fill_parent"
+        android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:gravity="center_horizontal"
