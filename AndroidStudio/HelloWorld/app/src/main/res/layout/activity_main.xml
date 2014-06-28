@@ -53,6 +53,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/firstTopButton"
+            android:enabled="false"
             android:text="Button 2" />
 
         <Button
