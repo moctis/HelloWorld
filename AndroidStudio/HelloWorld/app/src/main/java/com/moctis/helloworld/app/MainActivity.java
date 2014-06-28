@@ -23,9 +23,15 @@ public class MainActivity extends Activity {
         initViews();
 
         if (savedInstanceState != null) {
-            boolean enable = savedInstanceState.getBoolean(EnableState, false);
-            findViewById(R.id.secondButton).setEnabled(enable);
+            loadState(savedInstanceState);
         }
+
+        onClickMenuWithResult();
+    }
+
+    private void loadState(Bundle savedInstanceState) {
+        boolean enable = savedInstanceState.getBoolean(EnableState, false);
+        findViewById(R.id.secondButton).setEnabled(enable);
     }
 
     @Override
@@ -49,6 +55,8 @@ public class MainActivity extends Activity {
                 return this.onClickMenuShowActivity2();
             case R.id.action_show_activity3:
                 return this.onClickMenuShowActivity3();
+            case R.id.action_with_result:
+                return this.onClickMenuWithResult();
             case R.id.action_exit:
                 return this.onClickMenuExit();
             default:
@@ -73,6 +81,12 @@ public class MainActivity extends Activity {
         return true;
     }
 
+    private boolean onClickMenuWithResult() {
+        Intent intent = new Intent(this, WithResultActivity.class);
+        startActivity(intent);
+        return true;
+    }
+
     void initViews() {
         findViewById(R.id.firstTopButton)
                 .setOnClickListener(new View.OnClickListener() {
@@ -81,7 +95,6 @@ public class MainActivity extends Activity {
                         handleButtonCLick();
                     }
                 });
-
         findViewById(R.id.secondButton)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -89,7 +102,6 @@ public class MainActivity extends Activity {
                         handleButton2CLick();
                     }
                 });
-
         findViewById(R.id.aNewButton)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -97,7 +109,6 @@ public class MainActivity extends Activity {
                         handleButton3Click();
                     }
                 });
-
     }
 
     void handleButtonCLick() {
@@ -112,6 +123,7 @@ public class MainActivity extends Activity {
     private void handleButton3Click() {
         getTextView().setText("Button3");
     }
+
 
     //<editor-fold desc="lifecycle callbacks">
     @Override
@@ -154,7 +166,6 @@ public class MainActivity extends Activity {
         super.onDestroy();
         LogHelper.LogCallback(this, "onDestroy");
     }
-
 
     //</editor-fold>
 }
