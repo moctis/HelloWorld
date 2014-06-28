@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
 public class MainActivity extends Activity {
 
     private TextView textView;
@@ -122,7 +124,7 @@ public class MainActivity extends Activity {
 
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NotNull Bundle outState) {
         super.onSaveInstanceState(outState);
         LogHelper.LogCallback(this, "onSaveInstanceState");
     }
@@ -130,7 +132,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-
         LogHelper.LogCallback(this, "onStop");
     }
 
