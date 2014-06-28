@@ -8,11 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends Activity {
 
-    private TextView textView;
+    final static String EnableState = "Button_Enable";
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +20,25 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         LogHelper.LogCallback(this, "onCreate");
 
-        setupViews();
+        initViews();
+
+        if (savedInstanceState != null) {
+            boolean enable = savedInstanceState.getBoolean(EnableState, false);
+            findViewById(R.id.secondButton).setEnabled(enable);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    public TextView getTextView() {
+        if (mTextView == null) {
+            mTextView = (TextView) findViewById(R.id.firstTopTextView);
+        }
+        return mTextView;
     }
 
     @Override
@@ -61,7 +73,7 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    void setupViews() {
+    void initViews() {
         findViewById(R.id.firstTopButton)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -85,22 +97,20 @@ public class MainActivity extends Activity {
                         handleButton3Click();
                     }
                 });
+
     }
 
     void handleButtonCLick() {
-        textView = (TextView) findViewById(R.id.firstTopTextView);
-        textView.setText("Click 1");
+        getTextView().setText("Click 1");
         findViewById(R.id.secondButton).setEnabled(true);
     }
 
     void handleButton2CLick() {
-        TextView view = (TextView) findViewById(R.id.firstTopTextView);
-        view.setText("Click 2 !!");
+        getTextView().setText("Click 2 !!");
     }
 
     private void handleButton3Click() {
-        TextView view = (TextView) findViewById(R.id.firstTopTextView);
-        view.setText("Button3");
+        getTextView().setText("Button3");
     }
 
     //<editor-fold desc="lifecycle callbacks">
@@ -124,9 +134,13 @@ public class MainActivity extends Activity {
 
 
     @Override
-    protected void onSaveInstanceState(@NotNull Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         LogHelper.LogCallback(this, "onSaveInstanceState");
+
+        View viewById = this.findViewById(R.id.firstTopButton);
+
+        outState.putBoolean(EnableState, viewById.isEnabled());
     }
 
     @Override
@@ -140,6 +154,7 @@ public class MainActivity extends Activity {
         super.onDestroy();
         LogHelper.LogCallback(this, "onDestroy");
     }
+
 
     //</editor-fold>
 }
