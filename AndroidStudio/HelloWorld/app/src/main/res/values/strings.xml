@@ -23,5 +23,11 @@
     <string name="Provide_Information">Provide Information...</string>
     <string name="Take_Picture">Take Picture</string>
     <string name="Send">Send</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="android_fragments_title">Android fragments title</string>
+    <string name="android_intents_title">Android intents title</string>
+    <string name="course_new_features">Android 4.0 New Features</string>
+    <string name="intro_to_android_development">Intro to Android Development</string>
+    <string name="android_programming_with_intents">Android Programming with Intents</string>
 
 </resources>

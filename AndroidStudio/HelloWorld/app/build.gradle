@@ -4,7 +4,7 @@ android {
     compileSdkVersion 19
     buildToolsVersion '19.1.0'
     defaultConfig {
-        minSdkVersion 8
+        minSdkVersion 11
         targetSdkVersion 19
         versionCode 1
         versionName '1.0'
@@ -20,11 +20,15 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     productFlavors {
+        minimum_support_fragment {
+            minSdkVersion 11
+            targetSdkVersion 19
+        }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:19.+'
-    compile 'com.android.support:support-v4:18.0.0'
+    compile 'com.android.support:support-v4:19.+'
 }

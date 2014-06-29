@@ -13,7 +13,8 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="1"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/firstTopTextView"
@@ -41,18 +42,17 @@
             android:id="@+id/firstTopButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/firstTopTextView"
+            android:layout_alignTop="@+id/aNewButton"
+            android:layout_marginLeft="27dp"
+            android:layout_toRightOf="@+id/firstTopTextView"
             android:text="Click Me!" />
 
         <Button
             android:id="@+id/secondButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/firstTopButton"
+            android:layout_alignTop="@+id/firstTopButton"
+            android:layout_toRightOf="@+id/firstTopButton"
             android:enabled="false"
             android:text="Button 2" />
 
@@ -60,9 +60,8 @@
             android:id="@+id/aNewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/secondButton"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/secondButton"
             android:text="New Button" />
 
     </RelativeLayout>
@@ -70,40 +69,26 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="4"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/classNameTextView"
-            android:layout_width="0dp"
+        <fragment
+            android:id="@+id/titlesFragment"
+            android:name="com.moctis.helloworld.app.TitlesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            tools:layout="@layout/simple_list_item_1" />
+
+        <fragment
+            android:id="@+id/descriptionFragment"
+            android:name="com.moctis.helloworld.app.DescriptionFragment"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            tools:layout="@layout/fragment_description" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/bottomTextView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:gravity="center_horizontal"
-            android:text="Bottom Section TextView"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
 </LinearLayout>

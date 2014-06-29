@@ -1,6 +1,7 @@
 package com.moctis.helloworld.app;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnCourseSelectionChangeListener {
 
     final static String EnableState = "Button_Enable";
     private TextView mTextView;
@@ -25,8 +26,6 @@ public class MainActivity extends Activity {
         if (savedInstanceState != null) {
             loadState(savedInstanceState);
         }
-
-        onClickMenuWithResult();
     }
 
     @Override
@@ -167,6 +166,13 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         LogHelper.LogCallback(this, "onDestroy");
+    }
+
+    @Override
+    public void onCourseSelectionChange(int index) {
+        FragmentManager fm = getFragmentManager();
+        DescriptionFragment descriptionFragment = (DescriptionFragment) fm.findFragmentById(R.id.descriptionFragment);
+        descriptionFragment.setCourse(index);
     }
 
     //</editor-fold>
