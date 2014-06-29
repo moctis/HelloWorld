@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="course_titles">
+        <item>@string/c1_title</item>
+        <item>@string/c2_title</item>
+        <item>@string/c3_title</item>
+        <item>@string/c4_title</item>
+    </string-array>
+    <string-array name="course_titles_short">
+        <item>@string/c1_title_short</item>
+        <item>@string/c2_title_short</item>
+        <item>@string/c3_title_short</item>
+        <item>@string/c4_title_short</item>
+    </string-array>
+    <string-array name="course_description">
+        <item>@string/c1_description</item>
+        <item>@string/c2_description</item>
+        <item>@string/c3_description</item>
+        <item>@string/c4_description</item>
+    </string-array>
+</resources>
