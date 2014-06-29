@@ -17,7 +17,9 @@ public class WithResultActivity extends ActionBarActivity {
     //<editor-fold desc="field">
     public static final int ACTION_PROVIDE_INFO = 1000;
     public static final int ACTION_TAKE_PHOTO = 1001;
-
+    String className;
+    String person;
+    String email;
     private TextView classNameTextView;
     private TextView personNameTextView;
     private TextView emailTextView;
@@ -25,12 +27,41 @@ public class WithResultActivity extends ActionBarActivity {
     private Uri photoFileUri;
     //</editor-fold>
 
+    //<editor-fold desc="getter/setter">
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+        classNameTextView.setText(className);
+    }
+
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
+        personNameTextView.setText(person);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+        emailTextView.setText(email);
+    }
+    //</editor-fold>
+
     //<editor-fold desc="@Override on...">
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_result);
-        setupView();
+        setupView(savedInstanceState);
     }
 
     @Override
@@ -67,31 +98,50 @@ public class WithResultActivity extends ActionBarActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(Activity3.EXTRA_CLASS_NAME, getClassName());
+        outState.putString(Activity3.EXTRA_PERSON_NAME, getPerson());
+        outState.putString(Activity3.EXTRA_EMAIL_EXTRA, getEmail());
+    }
+
     //</editor-fold>
 
-    private void setupView() {
-        findViewById(R.id.infoButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                infoButtonOnClick();
-            }
-        });
-        findViewById(R.id.takePictureButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                takePictureOnClick();
-            }
-        });
-        findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendOnClick();
-            }
-        });
+    private void setupView(Bundle state) {
+        findViewById(R.id.infoButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        infoButtonOnClick();
+                    }
+                });
+        findViewById(R.id.takePictureButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        takePictureOnClick();
+                    }
+                });
+        findViewById(R.id.sendButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        sendOnClick();
+                    }
+                });
+
         classNameTextView = (TextView) findViewById(R.id.classNameTextView);
         personNameTextView = (TextView) findViewById(R.id.personNameTextView);
         emailTextView = (TextView) findViewById(R.id.emailTextView);
         thumbNailImageView = (ImageView) findViewById(R.id.thumbNailImageView);
+
+        if (state != null) {
+            setClassName(state.getString(Activity3.EXTRA_CLASS_NAME));
+            setPerson(state.getString(Activity3.EXTRA_PERSON_NAME));
+            setEmail(state.getString(Activity3.EXTRA_EMAIL_EXTRA));
+        }
     }
 
     private void infoButtonOnClick() {
@@ -105,7 +155,6 @@ public class WithResultActivity extends ActionBarActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri);
         startActivityForResult(intent, ACTION_TAKE_PHOTO);
-
     }
 
     private void handleProvideInfoResult(int resultCode, Intent data) {
@@ -113,13 +162,9 @@ public class WithResultActivity extends ActionBarActivity {
 
         if (!correctResult(resultCode, "User Canceled")) return;
 
-        String className = data.getStringExtra(Activity3.EXTRA_CLASS_NAME);
-        String person = data.getStringExtra(Activity3.EXTRA_PERSON_NAME);
-        String email = data.getStringExtra(Activity3.EXTRA_EMAIL_EXTRA);
-
-        classNameTextView.setText(className);
-        personNameTextView.setText(person);
-        emailTextView.setText(email);
+        setClassName(data.getStringExtra(Activity3.EXTRA_CLASS_NAME));
+        setPerson(data.getStringExtra(Activity3.EXTRA_PERSON_NAME));
+        setEmail(data.getStringExtra(Activity3.EXTRA_EMAIL_EXTRA));
     }
 
     private void handleTakePhoto(int resultCode) {
