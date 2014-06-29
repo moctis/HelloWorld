@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
 
 public class MainActivity extends Activity {
 
@@ -29,22 +31,10 @@ public class MainActivity extends Activity {
         onClickMenuWithResult();
     }
 
-    private void loadState(Bundle savedInstanceState) {
-        boolean enable = savedInstanceState.getBoolean(EnableState, false);
-        findViewById(R.id.secondButton).setEnabled(enable);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
-    }
-
-    public TextView getTextView() {
-        if (mTextView == null) {
-            mTextView = (TextView) findViewById(R.id.firstTopTextView);
-        }
-        return mTextView;
     }
 
     @Override
@@ -62,6 +52,19 @@ public class MainActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    private void loadState(Bundle savedInstanceState) {
+        boolean enable = savedInstanceState.getBoolean(EnableState, false);
+        findViewById(R.id.secondButton).setEnabled(enable);
+    }
+
+    public TextView getTextView() {
+        if (mTextView == null) {
+            mTextView = (TextView) findViewById(R.id.firstTopTextView);
+        }
+        return mTextView;
     }
 
     public boolean onClickMenuShowActivity2() {
@@ -111,6 +114,7 @@ public class MainActivity extends Activity {
                 });
     }
 
+
     void handleButtonCLick() {
         getTextView().setText("Click 1");
         findViewById(R.id.secondButton).setEnabled(true);
@@ -146,7 +150,7 @@ public class MainActivity extends Activity {
 
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NotNull Bundle outState) {
         super.onSaveInstanceState(outState);
         LogHelper.LogCallback(this, "onSaveInstanceState");
 
